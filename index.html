@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Flashcards inteligentes com algoritmo SM-2. Fundamentado em três décadas de pesquisa em psicologia cognitiva. Grátis, sem cartão, sem instalação.">
+  <meta name="theme-color" content="#f7f4ed">
+  <title>Stack Cards — Pare de esquecer o que você estuda</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Stack Cards — Flashcards com ciência da memória">
+  <meta property="og:description" content="Algoritmo SM-2 calcula o momento exato da sua próxima revisão. Grátis.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://stackcards.com.br">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Background decorativo -->
+  <div class="bg-decoration" aria-hidden="true">
+    <div class="grain"></div>
+    <div class="gradient-blob gradient-blob-1"></div>
+    <div class="gradient-blob gradient-blob-2"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="5" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.8"/>
+            <rect x="7" y="9" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.8" fill="var(--bg-primary)"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-title">Stack Cards</span>
+          <span class="brand-sub">Revisão Inteligente</span>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="Navegação principal">
+        <a href="#ciencia">Ciência</a>
+        <a href="#funcionalidades">Funcionalidades</a>
+        <a href="#ia">Agente de IA</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <a href="https://app.stackcards.com.br" class="btn btn-primary btn-sm">Entrar grátis</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <p class="eyebrow">Ciência da memória · Desde 1885</p>
+          <h1 class="hero-title">
+            Você esquece <span class="accent-text">67%</span> do que estuda em 24 horas.
+            <br>
+            <span class="hero-title-alt">Stack Cards resolve isso.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Flashcards inteligentes com algoritmo de repetição espaçada (SM-2).
+            Sua próxima revisão é calculada no momento em que seu cérebro está
+            prestes a esquecer — nem antes, nem depois.
+          </p>
+          <div class="hero-cta">
+            <a href="https://app.stackcards.com.br" class="btn btn-primary btn-lg">
+              Começar grátis
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <p class="hero-microcopy">Sem cartão · Sem instalação · 4 cards de exemplo prontos</p>
+          </div>
+        </div>
+
+        <!-- Mock do flashcard -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="mock-flashcard">
+            <div class="mock-flashcard-meta">
+              <span class="mock-category">BIOLOGIA</span>
+              <span class="mock-interval">Intervalo: 4 dias</span>
+            </div>
+            <p class="mock-question">Qual é a equação geral da fotossíntese?</p>
+            <div class="mock-divider"></div>
+            <p class="mock-answer">6 CO₂ + 6 H₂O + luz → C₆H₁₂O₆ + 6 O₂</p>
+            <div class="mock-review-buttons">
+              <button class="mock-btn mock-btn-wrong">Errei</button>
+              <button class="mock-btn mock-btn-hard">Difícil</button>
+              <button class="mock-btn mock-btn-good">Bom</button>
+              <button class="mock-btn mock-btn-easy">Fácil</button>
+            </div>
+          </div>
+          <div class="mock-shadow-card mock-shadow-card-1"></div>
+          <div class="mock-shadow-card mock-shadow-card-2"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problema -->
+    <section class="section section-problem">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">O problema</p>
+          <h2 class="section-title">Estudar sem estratégia de revisão é furar um balde.</h2>
+        </div>
+
+        <div class="problem-grid">
+          <div class="problem-text">
+            <p>
+              Em 1885, <strong>Hermann Ebbinghaus</strong> provou experimentalmente que a
+              retenção de informação cai de forma exponencial. Em 20 minutos, você
+              já perdeu 40% do que aprendeu. Em 24 horas, sobram cerca de 33%.
+              Em uma semana, quase nada.
+            </p>
+            <p>
+              A boa notícia: cada revisão bem-sucedida <strong>achata essa curva</strong>.
+              O problema é saber <em>quando</em> revisar. Revisar cedo demais é desperdício.
+              Tarde demais, é começar do zero.
+            </p>
+          </div>
+
+          <div class="problem-chart">
+            <svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gráfico da Curva do Esquecimento">
+              <!-- Grid -->
+              <g class="chart-grid">
+                <line x1="50" y1="40" x2="50" y2="220"/>
+                <line x1="50" y1="220" x2="380" y2="220"/>
+                <line x1="50" y1="180" x2="380" y2="180" stroke-dasharray="2,4"/>
+                <line x1="50" y1="130" x2="380" y2="130" stroke-dasharray="2,4"/>
+                <line x1="50" y1="80" x2="380" y2="80" stroke-dasharray="2,4"/>
+              </g>
+
+              <!-- Labels eixo Y -->
+              <g class="chart-label">
+                <text x="42" y="224" text-anchor="end">0%</text>
+                <text x="42" y="184" text-anchor="end">33%</text>
+                <text x="42" y="134" text-anchor="end">66%</text>
+                <text x="42" y="84" text-anchor="end">100%</text>
+              </g>
+
+              <!-- Labels eixo X -->
+              <g class="chart-label">
+                <text x="50" y="240" text-anchor="middle">0</text>
+                <text x="115" y="240" text-anchor="middle">1d</text>
+                <text x="195" y="240" text-anchor="middle">3d</text>
+                <text x="275" y="240" text-anchor="middle">7d</text>
+                <text x="355" y="240" text-anchor="middle">14d</text>
+              </g>
+
+              <!-- Curva sem revisão -->
+              <path d="M50,80 Q70,145 115,175 T200,205 T295,215 T370,218"
+                    class="chart-line chart-line-wrong"
+                    fill="none"
+                    stroke-width="2.5"
+                    stroke-linecap="round"/>
+
+              <!-- Curva com revisão espaçada (dentes de serra que sobem) -->
+              <path d="M50,80 Q70,120 110,145 L115,85 Q140,105 190,120 L195,80 Q230,95 275,108 L280,82 Q310,90 355,95"
+                    class="chart-line chart-line-good"
+                    fill="none"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"/>
+
+              <!-- Pontos de revisão -->
+              <g class="chart-dots">
+                <circle cx="115" cy="85" r="3.5"/>
+                <circle cx="195" cy="80" r="3.5"/>
+                <circle cx="280" cy="82" r="3.5"/>
+              </g>
+            </svg>
+
+            <div class="chart-legend">
+              <div class="chart-legend-item">
+                <span class="chart-legend-dot chart-legend-dot-wrong"></span>
+                <span>Sem revisão</span>
+              </div>
+              <div class="chart-legend-item">
+                <span class="chart-legend-dot chart-legend-dot-good"></span>
+                <span>Com revisão espaçada</span>
+              </div>
+            </div>
+            <p class="chart-citation">Baseado em Ebbinghaus (1885)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solução / Progressão -->
+    <section class="section section-solution">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">A solução</p>
+          <h2 class="section-title">O Stack Cards calcula o momento exato da sua próxima revisão.</h2>
+          <p class="section-description">
+            Você cria um card com pergunta e resposta. Ao estudar, avalia sua
+            recordação em quatro níveis. O algoritmo SM-2 reprograma o card
+            automaticamente — cards fáceis voltam em semanas, cards difíceis voltam amanhã.
+          </p>
+        </div>
+
+        <div class="progression-wrapper">
+          <div class="progression-header">
+            <h3 class="progression-title">Um card avaliado como <span class="chip-inline chip-good">Bom</span> consistentemente:</h3>
+            <p class="progression-sub">em 2 meses, está a 32 dias de distância da próxima revisão.</p>
+          </div>
+
+          <div class="progression-table-wrap">
+            <table class="progression-table">
+              <thead>
+                <tr>
+                  <th>Revisão</th>
+                  <th>Dia</th>
+                  <th>Intervalo</th>
+                  <th>Próxima</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>1ª</td><td>0</td><td><span class="interval-badge">1 dia</span></td><td>Dia 1</td></tr>
+                <tr><td>2ª</td><td>1</td><td><span class="interval-badge">4 dias</span></td><td>Dia 5</td></tr>
+                <tr><td>3ª</td><td>5</td><td><span class="interval-badge">8 dias</span></td><td>Dia 13</td></tr>
+                <tr><td>4ª</td><td>13</td><td><span class="interval-badge">16 dias</span></td><td>Dia 29</td></tr>
+                <tr class="row-highlight"><td>5ª</td><td>29</td><td><span class="interval-badge interval-badge-strong">32 dias</span></td><td>Dia 61</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="progression-footnote">
+            Sua memória está fazendo o trabalho — o Stack Cards só avisa na hora certa.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ciência -->
+    <section class="section section-science" id="ciencia">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Embasamento científico</p>
+          <h2 class="section-title">Fundamentado em três décadas de pesquisa em psicologia cognitiva.</h2>
+        </div>
+
+        <div class="science-grid">
+          <article class="science-card">
+            <header class="science-card-head">
+              <span class="science-year">1885</span>
+              <h3 class="science-card-title">Curva do Esquecimento</h3>
+              <p class="science-author">Hermann Ebbinghaus</p>
+            </header>
+            <div class="science-card-body">
+              <p class="science-claim"><strong>O que diz:</strong> a retenção de informação decai exponencialmente sem revisão.</p>
+              <p class="science-application"><strong>Como aplicamos:</strong> cada card tem um cronograma de revisão que se ajusta à sua curva individual.</p>
+            </div>
+          </article>
+
+          <article class="science-card science-card-featured">
+            <header class="science-card-head">
+              <span class="science-year">1985</span>
+              <h3 class="science-card-title">Algoritmo SuperMemo-2</h3>
+              <p class="science-author">Piotr Woźniak</p>
+            </header>
+            <div class="science-card-body">
+              <p class="science-claim"><strong>O que diz:</strong> intervalos de revisão devem crescer progressivamente com base na dificuldade percebida pelo estudante.</p>
+              <p class="science-application"><strong>Como aplicamos:</strong> multiplicamos intervalos (×2 para "Bom", ×2.5 para "Fácil") e reiniciamos ciclos quando você erra.</p>
+            </div>
+          </article>
+
+          <article class="science-card">
+            <header class="science-card-head">
+              <span class="science-year">1988</span>
+              <h3 class="science-card-title">Carga Cognitiva</h3>
+              <p class="science-author">John Sweller</p>
+            </header>
+            <div class="science-card-body">
+              <p class="science-claim"><strong>O que diz:</strong> a memória de trabalho tem capacidade limitada. Sobrecarregá-la prejudica o aprendizado.</p>
+              <p class="science-application"><strong>Como aplicamos:</strong> limite diário de 20 cards. Excedentes vão para o dia seguinte, priorizando os mais atrasados.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Como funciona -->
+    <section class="section section-how">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Como funciona</p>
+          <h2 class="section-title">Comece em menos de 2 minutos.</h2>
+        </div>
+
+        <ol class="steps-list">
+          <li class="step">
+            <span class="step-number">01</span>
+            <h3 class="step-title">Crie seus cards</h3>
+            <p class="step-description">
+              Na aba Biblioteca, adicione pergunta, resposta e categoria.
+              Categorias são livres — use "Cálculo", "Anatomia", "Vocabulário em Inglês".
+            </p>
+          </li>
+          <li class="step">
+            <span class="step-number">02</span>
+            <h3 class="step-title">Estude</h3>
+            <p class="step-description">
+              Na aba Estudar, revele a resposta (ou aperte <kbd>Espaço</kbd>) e avalie sua recordação.
+              O algoritmo cuida do resto.
+            </p>
+          </li>
+          <li class="step">
+            <span class="step-number">03</span>
+            <h3 class="step-title">Acompanhe o progresso</h3>
+            <p class="step-description">
+              Veja cards dominados (intervalo ≥ 7 dias), cards em aprendizado,
+              distribuição por categoria e pendências do dia.
+            </p>
+          </li>
+        </ol>
+
+        <div class="cta-inline">
+          <a href="https://app.stackcards.com.br" class="btn btn-primary">
+            Criar meus primeiros cards
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Funcionalidades -->
+    <section class="section section-features" id="funcionalidades">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Funcionalidades</p>
+          <h2 class="section-title">Tudo que você precisa. Nada que você não precisa.</h2>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a7 7 0 0 0-7 7c0 2.4 1.2 4.5 3 5.7V17a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2.3a7 7 0 0 0 3-5.7 7 7 0 0 0-7-7zM9 21h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="feature-title">Algoritmo SM-2</h3>
+            <p class="feature-description">Intervalos calculados automaticamente pela sua avaliação.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h12a2 2 0 0 1 2 2v14l-8-4-8 4V6a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="feature-title">Biblioteca completa</h3>
+            <p class="feature-description">Crie, edite, filtre e organize por categoria.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="m20 20-4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <h3 class="feature-title">Busca em tempo real</h3>
+            <p class="feature-description">Encontre qualquer card por pergunta, resposta ou categoria.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 3v18h18M8 14l3-3 3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="feature-title">Estatísticas detalhadas</h3>
+            <p class="feature-description">Cards dominados, pendentes e distribuição por área.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="12" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M6 14h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <h3 class="feature-title">Atalhos de teclado</h3>
+            <p class="feature-description">Fluxo de estudo sem tirar as mãos do teclado.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a9 9 0 1 0 9 9A7 7 0 0 1 12 3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="feature-title">Tema claro e escuro</h3>
+            <p class="feature-description">Detecta a preferência do seu sistema automaticamente.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="feature-title">Sincronização em nuvem</h3>
+            <p class="feature-description">Seus cards em qualquer dispositivo, via Supabase.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v4l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <h3 class="feature-title">Acessível (WCAG AA)</h3>
+            <p class="feature-description">ARIA labels, navegação por teclado e contraste adequado.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="2" width="14" height="20" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M12 18h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <h3 class="feature-title">Mobile First</h3>
+            <p class="feature-description">Funciona em qualquer tela, do celular ao desktop.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Agente de IA -->
+    <section class="section section-ai" id="ia">
+      <div class="container ai-inner">
+        <div class="ai-content">
+          <p class="eyebrow">Diferencial</p>
+          <h2 class="section-title">Crie centenas de flashcards em minutos com IA.</h2>
+          <p class="ai-description">
+            Stack Cards aceita importação de JSON. Você pode pedir a qualquer modelo
+            (ChatGPT, Claude, Gemini) para gerar dezenas de cards sobre um tema —
+            e importar todos de uma vez. Publicamos o guia oficial com o prompt pronto.
+          </p>
+
+          <ul class="ai-steps">
+            <li><span class="ai-step-num">1</span> Copie o prompt pronto</li>
+            <li><span class="ai-step-num">2</span> Cole na IA com o tema desejado</li>
+            <li><span class="ai-step-num">3</span> Salve como .json e importe</li>
+          </ul>
+
+          <a href="guia-ia.html" class="btn btn-ghost">
+            Ver o guia do agente de IA
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="ai-visual" aria-hidden="true">
+          <div class="ai-code">
+            <div class="ai-code-head">
+              <span class="ai-code-dot"></span>
+              <span class="ai-code-dot"></span>
+              <span class="ai-code-dot"></span>
+              <span class="ai-code-filename">cards.json</span>
+            </div>
+            <pre class="ai-code-body"><span class="code-punct">{</span>
+  <span class="code-key">"app"</span>: <span class="code-string">"stack-cards"</span>,
+  <span class="code-key">"version"</span>: <span class="code-num">1</span>,
+  <span class="code-key">"exportedAt"</span>: <span class="code-string">"2026-04-18..."</span>,
+  <span class="code-key">"cards"</span>: <span class="code-punct">[</span>
+    <span class="code-punct">{</span>
+      <span class="code-key">"categoria"</span>: <span class="code-string">"Biologia"</span>,
+      <span class="code-key">"pergunta"</span>: <span class="code-string">"O que é fotossíntese?"</span>,
+      <span class="code-key">"resposta"</span>: <span class="code-string">"Processo de..."</span>
+    <span class="code-punct">}</span>,
+    <span class="code-comment">// + 29 cards</span>
+  <span class="code-punct">]</span>
+<span class="code-punct">}</span></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-faq" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Dúvidas frequentes</p>
+          <h2 class="section-title">Perguntas que você provavelmente tem.</h2>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-question">É realmente grátis?</summary>
+            <div class="faq-answer">
+              <p>
+                Sim. Por enquanto, tudo é gratuito enquanto validamos a plataforma
+                com os primeiros usuários. Você será avisado antes de qualquer
+                mudança, e quem entrar agora terá condições especiais quando monetizarmos.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">Preciso instalar algo?</summary>
+            <div class="faq-answer">
+              <p>
+                Não. Stack Cards roda direto no navegador. Seus cards ficam
+                sincronizados na nuvem, acessíveis de qualquer dispositivo.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">Meus dados estão seguros?</summary>
+            <div class="faq-answer">
+              <p>
+                Usamos Supabase como backend, com autenticação por conta individual.
+                Seus cards são privados — só você tem acesso.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">Posso importar cards de outras ferramentas?</summary>
+            <div class="faq-answer">
+              <p>
+                Sim. Oferecemos importação via JSON. Qualquer conjunto de cards
+                que você consiga converter para o nosso formato (documentado no guia)
+                funciona.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">Por que o limite de 20 cards por dia?</summary>
+            <div class="faq-answer">
+              <p>
+                Porque a ciência (Teoria da Carga Cognitiva de Sweller, 1988)
+                mostra que a memória de trabalho tem limite. Exceder esse limite
+                reduz a qualidade da memorização. Cards pendentes excedentes vão
+                automaticamente para o dia seguinte.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">Funciona em outros idiomas?</summary>
+            <div class="faq-answer">
+              <p>
+                Sim. Pergunta e resposta são texto livre — escreva em qualquer idioma.
+                A interface, no momento, está em português.
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="section section-final-cta">
+      <div class="container">
+        <div class="final-cta-box">
+          <h2 class="final-cta-title">Pare de estudar sem estratégia.</h2>
+          <p class="final-cta-sub">2 minutos para começar. Grátis. Sem cartão.</p>
+          <a href="https://app.stackcards.com.br" class="btn btn-primary btn-lg">
+            Criar minha conta grátis
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <p class="final-cta-micro">Junte-se aos primeiros usuários e ajude a moldar o Stack Cards.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="5" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.8"/>
+              <rect x="7" y="9" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.8" fill="var(--bg-primary)"/>
+            </svg>
+          </span>
+          <span class="brand-text">
+            <span class="brand-title">Stack Cards</span>
+            <span class="brand-sub">Revisão Inteligente</span>
+          </span>
+        </a>
+        <p class="footer-tagline">Feito com base em Ebbinghaus, Woźniak e Sweller.</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Links do rodapé">
+        <a href="#ciencia">Ciência</a>
+        <a href="#funcionalidades">Funcionalidades</a>
+        <a href="guia-ia.html">Guia de Importação</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <p class="footer-copy">© <span id="year"></span> Stack Cards. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

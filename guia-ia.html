@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Guia oficial: use qualquer IA (ChatGPT, Claude, Gemini) para gerar centenas de flashcards compatíveis com o Stack Cards.">
+  <meta name="theme-color" content="#f7f4ed">
+  <title>Guia do agente de IA — Stack Cards</title>
+
+  <meta property="og:title" content="Guia do agente de IA — Stack Cards">
+  <meta property="og:description" content="Prompt pronto para gerar flashcards com IA em formato compatível com o Stack Cards.">
+  <meta property="og:type" content="article">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Background decorativo -->
+  <div class="bg-decoration" aria-hidden="true">
+    <div class="grain"></div>
+    <div class="gradient-blob gradient-blob-1"></div>
+    <div class="gradient-blob gradient-blob-2"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="Stack Cards · voltar ao início">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="5" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.8"/>
+            <rect x="7" y="9" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.8" fill="var(--bg-primary)"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-title">Stack Cards</span>
+          <span class="brand-sub">Revisão Inteligente</span>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="Navegação principal">
+        <a href="index.html#ciencia">Ciência</a>
+        <a href="index.html#funcionalidades">Funcionalidades</a>
+        <a href="guia-ia.html" aria-current="page" class="nav-active">Guia de IA</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <a href="https://app.stackcards.com.br" class="btn btn-primary btn-sm">Entrar grátis</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="guide-main">
+
+    <!-- Breadcrumb -->
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">← Página inicial</a>
+      </nav>
+    </div>
+
+    <!-- Hero -->
+    <section class="guide-hero">
+      <div class="container">
+        <p class="eyebrow">Guia oficial de importação</p>
+        <h1 class="guide-hero-title">
+          Crie <span class="accent-text">100 flashcards</span> em 1 minuto com IA.
+        </h1>
+        <p class="guide-hero-subtitle">
+          Stack Cards aceita importação de JSON. Use este guia para gerar centenas
+          de cards com ChatGPT, Claude, Gemini — ou qualquer modelo de IA —
+          e importar tudo de uma vez.
+        </p>
+      </div>
+    </section>
+
+    <!-- Quando usar -->
+    <section class="guide-section">
+      <div class="container container-narrow">
+        <div class="guide-section-head">
+          <p class="eyebrow">Quando usar</p>
+          <h2 class="guide-section-title">Criar manualmente é ótimo. Às vezes, em massa é melhor.</h2>
+          <p class="guide-section-description">
+            Formular a pergunta já ajuda a fixar o conteúdo — por isso criar cards
+            manualmente continua sendo o ideal quando você está processando material novo.
+            Mas há cenários em que gerar em massa com IA faz sentido:
+          </p>
+        </div>
+
+        <ul class="use-cases">
+          <li class="use-case">
+            <div class="use-case-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <h3 class="use-case-title">Revisão de conteúdo dominado</h3>
+              <p class="use-case-description">Cobertura ampla sobre um tema que você já estudou.</p>
+            </div>
+          </li>
+          <li class="use-case">
+            <div class="use-case-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16v16H4zM9 4v16M4 9h16" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <h3 class="use-case-title">Provas com temário extenso</h3>
+              <p class="use-case-description">Concursos, vestibulares, certificações.</p>
+            </div>
+          </li>
+          <li class="use-case">
+            <div class="use-case-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <h3 class="use-case-title">Vocabulário em larga escala</h3>
+              <p class="use-case-description">Idiomas, termos técnicos, glossários.</p>
+            </div>
+          </li>
+          <li class="use-case">
+            <div class="use-case-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><path d="M12 1v4M12 19v4M4.2 4.2l2.9 2.9M16.9 16.9l2.9 2.9M1 12h4M19 12h4M4.2 19.8l2.9-2.9M16.9 7.1l2.9-2.9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <h3 class="use-case-title">Fundação em área nova</h3>
+              <p class="use-case-description">Conceitos básicos antes de mergulhar em profundidade.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Como funciona -->
+    <section class="guide-section guide-section-alt">
+      <div class="container container-narrow">
+        <div class="guide-section-head">
+          <p class="eyebrow">Como funciona</p>
+          <h2 class="guide-section-title">Três passos. Zero código.</h2>
+        </div>
+
+        <ol class="mini-steps">
+          <li class="mini-step">
+            <span class="mini-step-num">1</span>
+            <div>
+              <h3>Copie o prompt pronto</h3>
+              <p>Disponível logo abaixo.</p>
+            </div>
+          </li>
+          <li class="mini-step">
+            <span class="mini-step-num">2</span>
+            <div>
+              <h3>Cole em qualquer IA</h3>
+              <p>ChatGPT, Claude, Gemini. Preencha tema e quantidade.</p>
+            </div>
+          </li>
+          <li class="mini-step">
+            <span class="mini-step-num">3</span>
+            <div>
+              <h3>Salve como .json e importe</h3>
+              <p>Abra Stack Cards → Biblioteca → Importar.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- O prompt pronto -->
+    <section class="guide-section" id="prompt">
+      <div class="container container-narrow">
+        <div class="guide-section-head">
+          <p class="eyebrow">Ferramenta</p>
+          <h2 class="guide-section-title">O prompt pronto.</h2>
+          <p class="guide-section-description">
+            Copie, cole na IA, substitua <code class="inline-code">[N]</code> pela quantidade e
+            <code class="inline-code">[TEMA]</code> pelo assunto.
+          </p>
+        </div>
+
+        <div class="prompt-box">
+          <div class="prompt-box-head">
+            <span class="prompt-box-label">Prompt · português</span>
+            <button class="copy-btn" data-copy-target="#promptText" aria-label="Copiar prompt">
+              <svg class="copy-icon-default" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+              <svg class="copy-icon-done" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="copy-text-default">Copiar</span>
+              <span class="copy-text-done">Copiado!</span>
+            </button>
+          </div>
+          <pre class="prompt-box-body" id="promptText">Gere um JSON válido para importação no Stack Cards.
+
+Regras obrigatórias:
+1) O JSON raiz deve ser um OBJETO com:
+   - "app": "stack-cards"
+   - "version": 1
+   - "exportedAt": data ISO válida (ex: 2026-04-18T14:30:00.000Z)
+   - "cards": array de cards
+
+2) Cada card deve ter obrigatoriamente:
+   - "categoria" (string não vazia)
+   - "pergunta" (string não vazia)
+   - "resposta" (string não vazia)
+
+3) Campos opcionais por card:
+   - "id" (string)
+   - "proximaRevisao" (YYYY-MM-DD)
+   - "intervalo" (inteiro positivo)
+
+4) Não inclua explicações fora do JSON. Retorne APENAS o JSON final.
+
+5) Gere [N] cards sobre o tema [TEMA].</pre>
+        </div>
+
+        <p class="prompt-tip">
+          💡 <strong>Dica:</strong> comece com 20–30 cards por lote. A qualidade costuma cair em listas muito longas.
+        </p>
+      </div>
+    </section>
+
+    <!-- Exemplo prático -->
+    <section class="guide-section guide-section-alt">
+      <div class="container container-narrow">
+        <div class="guide-section-head">
+          <p class="eyebrow">Exemplo prático</p>
+          <h2 class="guide-section-title">Vamos ver na prática.</h2>
+          <p class="guide-section-description">
+            Um estudante de biologia quer 5 cards sobre fotossíntese.
+          </p>
+        </div>
+
+        <div class="example-flow">
+          <!-- Passo 1 -->
+          <div class="example-step">
+            <div class="example-step-head">
+              <span class="example-badge">Prompt enviado</span>
+            </div>
+            <div class="example-prompt">
+              <p>
+                Gere um JSON válido para importação no Stack Cards. <span class="example-muted">[...regras omitidas...]</span>
+                Gere <span class="example-highlight">5</span> cards sobre o tema
+                <span class="example-highlight">Fotossíntese</span>.
+              </p>
+            </div>
+          </div>
+
+          <div class="example-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 5v14M6 13l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <!-- Passo 2 -->
+          <div class="example-step">
+            <div class="example-step-head">
+              <span class="example-badge">Resposta da IA</span>
+            </div>
+            <div class="ai-code">
+              <div class="ai-code-head">
+                <span class="ai-code-dot"></span>
+                <span class="ai-code-dot"></span>
+                <span class="ai-code-dot"></span>
+                <span class="ai-code-filename">fotossintese.json</span>
+              </div>
+              <pre class="ai-code-body"><span class="code-punct">{</span>
+  <span class="code-key">"app"</span>: <span class="code-string">"stack-cards"</span>,
+  <span class="code-key">"version"</span>: <span class="code-num">1</span>,
+  <span class="code-key">"exportedAt"</span>: <span class="code-string">"2026-04-18T14:30:00.000Z"</span>,
+  <span class="code-key">"cards"</span>: <span class="code-punct">[</span>
+    <span class="code-punct">{</span>
+      <span class="code-key">"categoria"</span>: <span class="code-string">"Biologia"</span>,
+      <span class="code-key">"pergunta"</span>: <span class="code-string">"O que é fotossíntese?"</span>,
+      <span class="code-key">"resposta"</span>: <span class="code-string">"Processo em que organismos convertem energia luminosa em energia química."</span>
+    <span class="code-punct">}</span>,
+    <span class="code-punct">{</span>
+      <span class="code-key">"categoria"</span>: <span class="code-string">"Biologia"</span>,
+      <span class="code-key">"pergunta"</span>: <span class="code-string">"Qual é a equação geral da fotossíntese?"</span>,
+      <span class="code-key">"resposta"</span>: <span class="code-string">"6 CO₂ + 6 H₂O + luz → C₆H₁₂O₆ + 6 O₂"</span>
+    <span class="code-punct">}</span>,
+    <span class="code-punct">{</span>
+      <span class="code-key">"categoria"</span>: <span class="code-string">"Biologia"</span>,
+      <span class="code-key">"pergunta"</span>: <span class="code-string">"Onde ocorre a fotossíntese na célula vegetal?"</span>,
+      <span class="code-key">"resposta"</span>: <span class="code-string">"Nos cloroplastos — tilacoides (fase clara) e estroma (fase escura)."</span>
+    <span class="code-punct">}</span>,
+    <span class="code-comment">// + 2 cards</span>
+  <span class="code-punct">]</span>
+<span class="code-punct">}</span></pre>
+            </div>
+          </div>
+
+          <div class="example-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 5v14M6 13l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <!-- Passo 3 -->
+          <div class="example-step">
+            <div class="example-step-head">
+              <span class="example-badge example-badge-success">Importar</span>
+            </div>
+            <p class="example-import">
+              Salve o texto acima como <code class="inline-code">fotossintese.json</code>,
+              abra <strong>Stack Cards → Biblioteca → Importar</strong>, e pronto.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Referência técnica -->
+    <section class="guide-section" id="referencia">
+      <div class="container container-narrow">
+        <div class="guide-section-head">
+          <p class="eyebrow">Referência técnica</p>
+          <h2 class="guide-section-title">Formato completo, campo a campo.</h2>
+        </div>
+
+        <div class="ref-group">
+          <h3 class="ref-group-title">Raiz do JSON</h3>
+          <div class="ref-table-wrap">
+            <table class="ref-table">
+              <thead>
+                <tr>
+                  <th>Campo</th>
+                  <th>Tipo</th>
+                  <th>Obrig.</th>
+                  <th>Descrição</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code class="inline-code">app</code></td>
+                  <td>string</td>
+                  <td><span class="req-dot req-yes" aria-label="obrigatório"></span></td>
+                  <td>Deve ser exatamente <code class="inline-code">"stack-cards"</code></td>
+                </tr>
+                <tr>
+                  <td><code class="inline-code">version</code></td>
+                  <td>number</td>
+                  <td><span class="req-dot req-yes" aria-label="obrigatório"></span></td>
+                  <td>Atualmente <code class="inline-code">1</code></td>
+                </tr>
+                <tr>
+                  <td><code class="inline-code">exportedAt</code></td>
+                  <td>ISO string</td>
+                  <td><span class="req-dot req-yes" aria-label="obrigatório"></span></td>
+                  <td>Ex: <code class="inline-code">"2026-04-18T14:30:00.000Z"</code></td>
+                </tr>
+                <tr>
+                  <td><code class="inline-code">cards</code></td>
+                  <td>array</td>
+                  <td><span class="req-dot req-yes" aria-label="obrigatório"></span></td>
+                  <td>Lista de cards</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="ref-group">
+          <h3 class="ref-group-title">Cada card</h3>
+          <div class="ref-table-wrap">
+            <table class="ref-table">
+              <thead>
+                <tr>
+                  <th>Campo</th>
+                  <th>Tipo</th>
+                  <th>Obrig.</th>
+                  <th>Descrição</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code class="inline-code">categoria</code></td>
+                  <td>string</td>
+                  <td><span class="req-dot req-yes" aria-label="obrigatório"></span></td>
+                  <td>Não pode ser vazia</td>
+                </tr>
+                <tr>
+                  <td><code class="inline-code">pergunta</code></td>
+                  <td>string</td>
+                  <td><span class="req-dot req-yes" aria-label="obrigatório"></span></td>
+                  <td>Não pode ser vazia</td>
+                </tr>
+                <tr>
+                  <td><code class="inline-code">resposta</code></td>
+                  <td>string</td>
+                  <td><span class="req-dot req-yes" aria-label="obrigatório"></span></td>
+                  <td>Não pode ser vazia</td>
+                </tr>
+                <tr>
+                  <td><code class="inline-code">id</code></td>
+                  <td>string</td>
+                  <td><span class="req-dot req-no" aria-label="opcional"></span></td>
+                  <td>Gerado automaticamente se omitido</td>
+                </tr>
+                <tr>
+                  <td><code class="inline-code">proximaRevisao</code></td>
+                  <td>YYYY-MM-DD</td>
+                  <td><span class="req-dot req-no" aria-label="opcional"></span></td>
+                  <td>Padrão: hoje</td>
+                </tr>
+                <tr>
+                  <td><code class="inline-code">intervalo</code></td>
+                  <td>inteiro &gt; 0</td>
+                  <td><span class="req-dot req-no" aria-label="opcional"></span></td>
+                  <td>Padrão: <code class="inline-code">1</code></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="ref-legend">
+            <span><span class="req-dot req-yes"></span> Obrigatório</span>
+            <span><span class="req-dot req-no"></span> Opcional</span>
+          </div>
+        </div>
+
+        <div class="ref-callout">
+          <h4>O que o sistema faz com campos inválidos</h4>
+          <ul>
+            <li><code class="inline-code">id</code> ausente → gerado automaticamente</li>
+            <li><code class="inline-code">proximaRevisao</code> inválida → substituída por hoje</li>
+            <li><code class="inline-code">intervalo</code> inválido → vira <code class="inline-code">1</code></li>
+            <li>Card sem <code class="inline-code">categoria</code>, <code class="inline-code">pergunta</code> ou <code class="inline-code">resposta</code> → <strong>ignorado silenciosamente</strong></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Erros comuns -->
+    <section class="guide-section guide-section-alt">
+      <div class="container container-narrow">
+        <div class="guide-section-head">
+          <p class="eyebrow">Armadilhas</p>
+          <h2 class="guide-section-title">Erros comuns que quebram a importação.</h2>
+        </div>
+
+        <ul class="error-list">
+          <li>
+            <span class="error-mark" aria-hidden="true">✕</span>
+            <div>
+              <p class="error-title">Enviar um array como raiz</p>
+              <p class="error-detail">Escrever <code class="inline-code">[ {...}, {...} ]</code> em vez do objeto com metadados.</p>
+            </div>
+          </li>
+          <li>
+            <span class="error-mark" aria-hidden="true">✕</span>
+            <div>
+              <p class="error-title">Valor errado em <code class="inline-code">app</code></p>
+              <p class="error-detail">Precisa ser <code class="inline-code">"stack-cards"</code> exatamente — com hífen, minúsculo.</p>
+            </div>
+          </li>
+          <li>
+            <span class="error-mark" aria-hidden="true">✕</span>
+            <div>
+              <p class="error-title"><code class="inline-code">version</code> como string</p>
+              <p class="error-detail">Use número (<code class="inline-code">1</code>), não <code class="inline-code">"1"</code>.</p>
+            </div>
+          </li>
+          <li>
+            <span class="error-mark" aria-hidden="true">✕</span>
+            <div>
+              <p class="error-title">Data em formato brasileiro</p>
+              <p class="error-detail"><code class="inline-code">"18/04/2026"</code> não funciona. Use ISO 8601: <code class="inline-code">"2026-04-18T14:30:00.000Z"</code>.</p>
+            </div>
+          </li>
+          <li>
+            <span class="error-mark" aria-hidden="true">✕</span>
+            <div>
+              <p class="error-title">Vírgula sobrando no último item</p>
+              <p class="error-detail">JSON não aceita vírgula após o último elemento de um array ou objeto.</p>
+            </div>
+          </li>
+          <li>
+            <span class="error-mark" aria-hidden="true">✕</span>
+            <div>
+              <p class="error-title">Comentários dentro do JSON</p>
+              <p class="error-detail"><code class="inline-code">//</code> ou <code class="inline-code">/* */</code> não são permitidos. A IA às vezes insere — remova antes de importar.</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="prompt-tip">
+          🔧 <strong>Antes de importar:</strong> valide a sintaxe colando em <a href="https://jsonlint.com" target="_blank" rel="noopener">jsonlint.com</a>.
+        </div>
+      </div>
+    </section>
+
+    <!-- Dicas avançadas -->
+    <section class="guide-section">
+      <div class="container container-narrow">
+        <div class="guide-section-head">
+          <p class="eyebrow">Dicas avançadas</p>
+          <h2 class="guide-section-title">Padrões que funcionam bem.</h2>
+        </div>
+
+        <ol class="tips-list">
+          <li class="tip">
+            <span class="tip-num">01</span>
+            <div>
+              <h3>Peça respostas concisas</h3>
+              <p>Adicione ao prompt: <em>"Cada resposta deve ter no máximo 2 frases curtas."</em> Cards longos são difíceis de memorizar.</p>
+            </div>
+          </li>
+          <li class="tip">
+            <span class="tip-num">02</span>
+            <div>
+              <h3>Peça perguntas específicas</h3>
+              <p><em>"Evite perguntas do tipo 'fale sobre X'. Prefira perguntas objetivas com uma única resposta clara."</em></p>
+            </div>
+          </li>
+          <li class="tip">
+            <span class="tip-num">03</span>
+            <div>
+              <h3>Divida por subcategorias</h3>
+              <p><em>"Use as categorias: 'Revolução Francesa — Causas', 'Revolução Francesa — Eventos', 'Revolução Francesa — Consequências'."</em></p>
+            </div>
+          </li>
+          <li class="tip">
+            <span class="tip-num">04</span>
+            <div>
+              <h3>Gere em lotes menores</h3>
+              <p>20–30 cards por vez costuma dar melhor qualidade que 100 de uma vez. A IA tende a "cansar" em listas longas.</p>
+            </div>
+          </li>
+          <li class="tip">
+            <span class="tip-num">05</span>
+            <div>
+              <h3>Revise antes de importar</h3>
+              <p>IA ainda erra. Abra o JSON, leia 3–5 cards aleatórios, confirme que estão corretos. Vale o minuto investido.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="guide-section guide-section-alt">
+      <div class="container container-narrow">
+        <div class="guide-section-head">
+          <p class="eyebrow">Perguntas frequentes</p>
+          <h2 class="guide-section-title">Dúvidas sobre o fluxo com IA.</h2>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-question">Qual IA gera o melhor resultado?</summary>
+            <div class="faq-answer">
+              <p>
+                Nos nossos testes, Claude (Anthropic) e GPT-4 produzem os JSONs mais
+                confiáveis. Modelos menores às vezes esquecem a estrutura ou
+                adicionam texto fora do JSON.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">A IA pode errar o conteúdo dos cards?</summary>
+            <div class="faq-answer">
+              <p>
+                Sim. IAs alucinam. Sempre revise cards sobre temas críticos
+                (medicina, direito, engenharia) antes de confiar neles.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">Posso exportar meus cards para usar em outro lugar?</summary>
+            <div class="faq-answer">
+              <p>
+                Sim. O Stack Cards gera JSONs no mesmo formato — você pode exportar,
+                editar, reimportar.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">Existe limite de cards por importação?</summary>
+            <div class="faq-answer">
+              <p>
+                Não há limite técnico fixo, mas recomendamos importações de até
+                100 cards por vez para manter o app responsivo.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">A IA pode gerar o prompt em inglês também?</summary>
+            <div class="faq-answer">
+              <p>
+                Sim. O conteúdo das perguntas e respostas pode estar em qualquer
+                idioma — o importante é que a estrutura do JSON siga o formato
+                documentado acima.
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="section section-final-cta">
+      <div class="container">
+        <div class="final-cta-box">
+          <h2 class="final-cta-title">Pronto para turbinar seu estudo?</h2>
+          <p class="final-cta-sub">Abra o app, teste o fluxo de importação com seus próprios cards.</p>
+          <a href="https://app.stackcards.com.br" class="btn btn-primary btn-lg">
+            Abrir Stack Cards
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <p class="final-cta-micro">Novo por aqui? Criar conta leva 30 segundos.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="5" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.8"/>
+              <rect x="7" y="9" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.8" fill="var(--bg-primary)"/>
+            </svg>
+          </span>
+          <span class="brand-text">
+            <span class="brand-title">Stack Cards</span>
+            <span class="brand-sub">Revisão Inteligente</span>
+          </span>
+        </a>
+        <p class="footer-tagline">Feito com base em Ebbinghaus, Woźniak e Sweller.</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Links do rodapé">
+        <a href="index.html#ciencia">Ciência</a>
+        <a href="index.html#funcionalidades">Funcionalidades</a>
+        <a href="guia-ia.html">Guia de Importação</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+
+      <p class="footer-copy">© <span id="year"></span> Stack Cards. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Toast para feedback de cópia -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
