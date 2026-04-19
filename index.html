@@ -4,14 +4,103 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Flashcards inteligentes com algoritmo SM-2. Fundamentado em três décadas de pesquisa em psicologia cognitiva. Grátis, sem cartão, sem instalação.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="theme-color" content="#f7f4ed">
   <title>Stack Cards · Pare de esquecer o que você estuda</title>
+  <link rel="canonical" href="https://stackcards.com.br/">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Stack Cards — Flashcards com ciência da memória">
   <meta property="og:description" content="Algoritmo SM-2 calcula o momento exato da sua próxima revisão. Grátis.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://stackcards.com.br">
+  <meta property="og:image" content="https://stackcards.com.br/assets/favicon.png">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Stack Cards">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Stack Cards — Flashcards com ciência da memória">
+  <meta name="twitter:description" content="Algoritmo SM-2 calcula o momento exato da sua próxima revisão. Grátis.">
+  <meta name="twitter:image" content="https://stackcards.com.br/assets/favicon.png">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Stack Cards",
+      "url": "https://stackcards.com.br/",
+      "logo": "https://stackcards.com.br/assets/favicon.png",
+      "description": "Plataforma de revisão espaçada com algoritmo SM-2 para retenção de longo prazo."
+    }
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Stack Cards",
+      "url": "https://stackcards.com.br/",
+      "inLanguage": "pt-BR"
+    }
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "É realmente grátis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim. Por enquanto, tudo é gratuito enquanto validamos a plataforma com os primeiros usuários. Você será avisado antes de qualquer mudança, e quem entrar agora terá condições especiais quando monetizarmos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Preciso instalar algo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não. Stack Cards roda direto no navegador. Seus cards ficam sincronizados na nuvem, acessíveis de qualquer dispositivo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Meus dados estão seguros?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usamos Supabase como backend, com autenticação por conta individual. Seus cards são privados — só você tem acesso."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Posso importar cards de outras ferramentas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim. Oferecemos importação via JSON. Qualquer conjunto de cards que você consiga converter para o nosso formato funciona."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Por que o limite de 20 cards por dia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Porque a Teoria da Carga Cognitiva de Sweller mostra que a memória de trabalho tem limite. Exceder esse limite reduz a qualidade da memorização."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Funciona em outros idiomas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim. Pergunta e resposta são texto livre em qualquer idioma. A interface, no momento, está em português."
+          }
+        }
+      ]
+    }
+  </script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,7 +122,7 @@
   <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#" class="brand">
+      <a href="index.html" class="brand">
         <div class="brand-mark" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="3" y="5" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.8"/>
@@ -41,7 +130,7 @@
           </svg>
         </div>
         <div class="brand-text">
-          <h1 class="brand-title">Stack Cards</h1>
+          <span class="brand-title">Stack Cards</span>
           <span class="brand-sub">Revisão Inteligente</span>
         </div>
       </a>
@@ -584,7 +673,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <a href="#" class="brand">
+        <a href="index.html" class="brand">
           <div class="brand-mark" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="3" y="5" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.8"/>
@@ -592,7 +681,7 @@
             </svg>
           </div>
           <div class="brand-text">
-            <h1 class="brand-title">Stack Cards</h1>
+            <span class="brand-title">Stack Cards</span>
             <span class="brand-sub">Revisão Inteligente</span>
           </div>
         </a>
@@ -610,6 +699,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

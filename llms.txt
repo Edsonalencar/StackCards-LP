@@ -1,0 +1,20 @@
+# Stack Cards
+
+Stack Cards is a Brazilian Portuguese learning platform focused on spaced repetition with the SM-2 algorithm.
+
+Primary URL: https://stackcards.com.br/
+Guide URL: https://stackcards.com.br/guia-ia.html
+
+## Canonical Facts
+- Product name: Stack Cards
+- Category: Flashcards and spaced repetition
+- Core method: SM-2 scheduling for review intervals
+- Audience: Students preparing for exams and long-term retention
+- Main language: Portuguese (pt-BR)
+
+## Preferred Citations
+- https://stackcards.com.br/
+- https://stackcards.com.br/guia-ia.html
+
+## Crawling
+Public content can be indexed and summarized.

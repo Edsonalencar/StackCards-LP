@@ -4,12 +4,118 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Guia oficial: use qualquer IA (ChatGPT, Claude, Gemini) para gerar centenas de flashcards compatíveis com o Stack Cards.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="theme-color" content="#f7f4ed">
   <title>Stack Cards · Guia do agente de IA</title>
+  <link rel="canonical" href="https://stackcards.com.br/guia-ia.html">
 
   <meta property="og:title" content="Guia do agente de IA — Stack Cards">
   <meta property="og:description" content="Prompt pronto para gerar flashcards com IA em formato compatível com o Stack Cards.">
   <meta property="og:type" content="article">
+  <meta property="og:url" content="https://stackcards.com.br/guia-ia.html">
+  <meta property="og:image" content="https://stackcards.com.br/assets/favicon.png">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Stack Cards">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Guia do agente de IA — Stack Cards">
+  <meta name="twitter:description" content="Prompt pronto para gerar flashcards com IA em formato compatível com o Stack Cards.">
+  <meta name="twitter:image" content="https://stackcards.com.br/assets/favicon.png">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Guia do agente de IA",
+      "description": "Guia oficial para gerar e importar flashcards em JSON no Stack Cards com ChatGPT, Claude, Gemini e outros modelos.",
+      "author": {
+        "@type": "Organization",
+        "name": "Stack Cards"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Stack Cards",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://stackcards.com.br/assets/favicon.png"
+        }
+      },
+      "datePublished": "2026-04-18",
+      "dateModified": "2026-04-18",
+      "mainEntityOfPage": "https://stackcards.com.br/guia-ia.html",
+      "inLanguage": "pt-BR"
+    }
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Página inicial",
+          "item": "https://stackcards.com.br/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guia do agente de IA",
+          "item": "https://stackcards.com.br/guia-ia.html"
+        }
+      ]
+    }
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qual IA gera o melhor resultado?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nos nossos testes, Claude e GPT-4 produzem JSONs mais confiáveis. Modelos menores às vezes esquecem a estrutura ou adicionam texto fora do JSON."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A IA pode errar o conteúdo dos cards?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim. IAs podem alucinar. Sempre revise cards sobre temas críticos antes de confiar neles."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Posso exportar meus cards para usar em outro lugar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim. O Stack Cards gera JSON no mesmo formato para exportar, editar e reimportar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Existe limite de cards por importação?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não há limite técnico fixo, mas recomendamos até 100 cards por importação para manter o app responsivo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A IA pode gerar o prompt em inglês também?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim. Perguntas e respostas podem estar em qualquer idioma, desde que a estrutura do JSON siga o formato documentado."
+          }
+        }
+      ]
+    }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -499,7 +605,7 @@ Regras obrigatórias:
         </ul>
 
         <div class="prompt-tip">
-          🔧 <strong>Antes de importar:</strong> valide a sintaxe colando em <a href="https://jsonlint.com" target="_blank" rel="noopener">jsonlint.com</a>.
+          🔧 <strong>Antes de importar:</strong> valide a sintaxe colando em <a href="https://jsonlint.com" target="_blank" rel="noopener noreferrer">jsonlint.com</a>.
         </div>
       </div>
     </section>
@@ -668,6 +774,6 @@ Regras obrigatórias:
   <!-- Toast para feedback de cópia -->
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
